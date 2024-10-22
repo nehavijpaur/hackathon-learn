@@ -32,7 +32,7 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
-          cp -r ./App/sample-web-app/* .
+          cp -r ./App1/docker-nodejs-sample/* .
           docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/dssp:${{ github.sha}}
           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/dssp:${{ github.sha }}
       
