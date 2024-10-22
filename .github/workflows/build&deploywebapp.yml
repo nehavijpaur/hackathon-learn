@@ -22,12 +22,9 @@ jobs:
 
       - name: 'Login via Azure CLI'
         uses: azure/login@v1
-        env:
-           AZURE_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-           AZURE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-           AZURE_TENANT_ID: ${{ secrets.TENANT_ID }}
-           AZURE_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
-              
+        with:
+         creds: ${{ secrets.AZURE_CREDENTIALS }}
+               
       - name: 'Build and push image'
         uses: azure/docker-login@v1
         with:
