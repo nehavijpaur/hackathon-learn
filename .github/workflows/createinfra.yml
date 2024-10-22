@@ -16,7 +16,7 @@ jobs:
     - name: Setup Terrafrom
       uses: hashicorp/setup-terraform@v1
       with: 
-        cli_config_credentials_token: ${{ secrets.client_secret }}
+        cli_config_credentials_token: ${{ secrets.CLIENT_SECRET }}
     - name: Terrafrom Init
       run: |
         cp ./Infra/* .
