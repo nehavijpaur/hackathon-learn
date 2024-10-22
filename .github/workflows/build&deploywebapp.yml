@@ -13,11 +13,19 @@ jobs:
       steps:
       - name: "checkout"
         uses: actions/checkout@main
+        
+      - name: 'Login to Azure'
+        env:
+           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+        run: |
+          echo $AZURE_CREDENTIALS | az login --service-principal --username ${{ secret.CLIENT_ID }} --password ${{ secret.CLIENT_SECRET }} --tenant ${{ secret.TENANT_ID }}
 
       - name: 'Login via Azure CLI'
         uses: azure/login@v1
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+            
     - name: 'Build and push image'
           uses: azure/docker-login@v1
           with:
