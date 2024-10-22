@@ -18,7 +18,7 @@ jobs:
         env:
            AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
         run: |
-          echo $AZURE_CREDENTIALS | az login --service-principal --username $CLIENT_ID --password $CLIENT_SECRET --tenant $TENANT_ID
+          echo $AZURE_CREDENTIALS | az login --service-principal -u $CLIENT_ID -p $CLIENT_SECRET --tenant $TENANT_ID
 
       - name: 'Login via Azure CLI'
         uses: azure/login@v1
