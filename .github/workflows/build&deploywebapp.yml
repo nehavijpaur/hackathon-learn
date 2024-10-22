@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'App/sample-web-app/**'
+      - 'App1/docker-nodejs-sample/**'
       
 jobs:
     build-and-deploy:
@@ -25,9 +25,9 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
-        cp -r ./App/sample-web-app/* .
-        docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/dssp:${{ github.sha}}
-        docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/dssp:${{ github.sha }}
+            cp -r ./App/sample-web-app/* .
+           docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/dssp:${{ github.sha}}
+           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/dssp:${{ github.sha }}
        - name: Set up kubectl
           run: |
             az aks get-credentials --resource-group ${{ secrets.RESOURCE_GROUP }} --name infrarg1
