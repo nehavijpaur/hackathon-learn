@@ -22,8 +22,6 @@ jobs:
 
       - name: 'Login via Azure CLI'
         uses: azure/login@v1
-        with:
-         creds: ${{ secrets.AZURE_CREDENTIALS }}
         env:
            AZURE_CLIENT_ID: ${{ secrets.CLIENT_ID }}
            AZURE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
