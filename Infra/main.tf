@@ -13,7 +13,6 @@ provider "azurerm" {
   subscription_id   = "b23019ef-882f-400c-bec3-05ad0c529130"
   tenant_id         = "c6d5705d-c3d8-44a2-9454-7f00b90ee67c"
   client_id         = "c7bcd53a-5ad8-4b01-8fad-6b0d6280e3b0"
-  client_secret     = "x3N8Q~m1SK2Bvd_xFbT20CDxU~.w9z3Wx2B9VbCn"
 }
 
 resource "azurerm_resource_group" "infrarg_1" {
