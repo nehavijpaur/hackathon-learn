@@ -18,7 +18,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "infrarg_1" {
   name     = "infrarg1"
-  location = "West Europe"
+  location = "North Europe"
 }
 
 resource "azurerm_container_registry" "cr1_cr" {
