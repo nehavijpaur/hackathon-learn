@@ -38,15 +38,15 @@ jobs:
       
       - name: Set up kubectl
         run: |
-            az aks get-credentials --resource-group ${{ secrets.RESOURCE_GROUP }} --name infrarg1
+            az aks get-credentials --resource-group infrarg1 --name infraaks1
 
       - name: Create Namespace
         run: |
-            kubectl create namespace namespace || echo "Namespace already exists"
+            kubectl create namespace namespace1 || echo "Namespace already exists"
 
       - name: Deploy to AKS
         run: |
-            kubectl apply -f deployment.yaml -n namespace
-            kubectl set image deployment/dssp dssp=${{ secrets.REGISTRY_LOGIN_SERVER }}/dssp:${{ github.sha }} -n namespace
-            kubectl rollout status deployment/dssp -n namespace
+            kubectl apply -f deployment.yaml -n namespace1
+            kubectl set image deployment/dssp dssp=${{ secrets.REGISTRY_LOGIN_SERVER }}/dssp:${{ github.sha }} -n namespace1
+            kubectl rollout status deployment/dssp -n namespace1
       
