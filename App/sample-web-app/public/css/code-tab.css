@@ -1,0 +1,51 @@
+#goby-lang {
+  height: 75vh;
+}
+#goby-lang > pre {
+  margin: 0;
+  height: calc(75vh - 35pt);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+ul#code-tab {
+  background-color: #FBA86F;
+  height: 35pt;
+  box-sizing: border-box;
+  font-size: 0;
+}
+ul#code-tab > li {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 35pt;
+  width: 75pt;
+  line-height: 35pt;
+  border-bottom: 2pt solid #fdd;
+  transition: .25s;
+  text-align: center;
+}
+ul#code-tab > li.active {
+  background-color: rgba(255, 106, 128, 0.8);
+  border-color: #faa;
+  transition: .25s;
+}
+ul#code-tab > li:hover:not(.active) {
+  background-color: #F88B40;
+  border-color: #faa;
+  transition: .25s;
+}
+
+@media screen and (max-width: 767px) {
+  pre code {
+    font-size: 8pt;
+  }
+  ul#code-tab > li {
+    font-size: 10pt;
+    padding: 0 6pt;
+  }
+}
+@media screen and (min-width: 768px) {
+  ul#code-tab > li {
+    font-size: 12pt;
+    padding: 0 10pt;
+  }
+}

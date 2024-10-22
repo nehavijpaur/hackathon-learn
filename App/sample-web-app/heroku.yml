@@ -1,0 +1,14 @@
+setup:
+  addons:
+  - plan: heroku-postgresql
+    as: DATABASE
+
+build:
+  docker:
+    web: Dockerfile
+
+run:
+  web: goby server.gb --bind 0.0.0.0:$PORT wsgi
+
+release:
+  image: web

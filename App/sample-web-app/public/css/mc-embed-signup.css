@@ -1,0 +1,64 @@
+div#mc_embed_signup {
+  text-align: center;
+  font-size: 0;
+  margin-bottom: 10vh;
+}
+div#mc_embed_signup h2, div#mc_embed_signup h4, div#mc_embed_signup h5 {
+  transition: .25s;
+}
+div#mc_embed_signup > form {
+  background-image: linear-gradient(340deg, rgba(255, 106, 128, 0.30), rgba(255, 170, 0, 0.3));
+  display: inline-block;
+  width: 100vw;
+  padding: 30pt 0 60pt 0;
+}
+div#mc_embed_signup > form input {
+  display: inline-block;
+  border: none;
+  height: 40pt;
+  line-height: 40pt;
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: bottom;
+  font-size: 14pt;
+  font-family: 'Quicksand', sans-serif;  
+}
+div#mc_embed_signup > form input[type="submit"]:hover {
+  background-color: #E72200;
+}
+div#mc_embed_signup > form input[type="submit"] {
+  width: 100pt;
+  border: none;
+  border-radius: 0;
+  background-color: #F45951;
+  color: white;
+}
+
+@media screen and (max-width: 767px) {
+  div#mc_embed_signup h2 { font-size: 10pt; }
+  div#mc_embed_signup h4 { font-size: 9pt; }
+  div#mc_embed_signup h5 { font-size: 8pt; }
+  div#mc_embed_signup > form input[type="email"] {
+    width: 70%;
+    padding: 0 10pt;
+    font-size: 10pt;
+  }
+  div#mc_embed_signup > form input[type="submit"] {
+    width: 20%;
+    padding: 0;
+    font-size: 10pt;
+  }
+  div#mc_embed_signup > form {
+    padding: 30pt 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  div#mc_embed_signup h2 { font-size: 20pt; }
+  div#mc_embed_signup h4 { font-size: 15pt; }
+  div#mc_embed_signup h5 { font-size: 13pt; }
+  div#mc_embed_signup > form input[type="email"] {
+    width: 400pt;
+    padding: 0 10pt;
+  }
+}

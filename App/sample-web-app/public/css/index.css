@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400');
+@font-face {
+  font-family: "Hero";
+  src: url("../font/Hero.eot") format("eot"),
+       url("../font/Hero.woff") format("woff"),
+       url("../font/Hero.ttf") format("truetype"),
+       url("../font/Hero.svg#Hero") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-family: 'Quicksand', sans-serif;
+  width: 100vw;
+  background-image: linear-gradient(45deg,#FF903E,#FFF5CE);
+  color: white;
+  overflow: auto;
+}
+button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius:0;
+}
+input:focus, button:focus { outline: none; }
+ul { margin: 0; padding: 0; }
+li { list-style-type: none; }
+a { text-decoration: none; }
+
+.to-do-app {
+  width: 85%;
+  margin: 0 auto;
+  max-height: calc(75vh - 6pt);
+  box-sizing: border-box;
+  box-shadow: 4pt 4pt 0pt rgba(247, 255, 160, 0.5),
+              8pt 8pt 0pt rgba(255, 194, 79, 0.65),
+              12pt 12pt 0pt rgba(255, 170, 0, 0.8);
+}
+.list-form {
+  font-size: 0;
+}
+.list-form > input {
+  width: calc(100% - 40pt);
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 15pt;
+  height: 40pt;
+  line-height: 40pt;
+  padding-left: 10pt;
+  font-weight: 300;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #F9DE7F;
+  border: none;
+  transition: .25s;
+}
+.list-form > input.error, .list-form input.error:focus {
+  background-color: #FEABB7;
+  transition: .25s;
+}
+.list-form > input:focus {
+  background-color: #eee;
+  outline: none;
+  transition: .25s;
+}
+.list-form > button {
+  vertical-align: top;
+  width: 40pt;
+  font-size: 10pt;
+  height: 40pt;
+  line-height: 40pt;
+  display: inline-block;
+  background-color: #FBA86F;
+  color: white;
+}
+.list-form > button:hover {
+  background-color: #F88B40;
+  color: #333;
+  transition: .25s;
+}
+.list-form > button > img {
+  width: 25pt;
+  height: 25pt;
+  vertical-align: middle;
+}
+.list-group {
+  background-color: #eea;
+  color: #666;
+  max-height: calc(75vh - 46pt);
+  overflow: auto;
+  /* box-shadow: inset 0pt 5pt 10pt #444; */
+  position: relative;
+}
+.list-group > .list-item {
+  box-sizing: border-box;
+  padding: 0 10pt;
+  line-height: 40pt;
+  font-weight: 300;
+  transition: .25s;
+  animation: fadeIn .25s;
+}
+.list-group > .list-item:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: .25s;
+}
+.list-group > .list-item > .list-item-control {
+  display: inline-block;
+  opacity: 0;
+  position: absolute;
+  right: 20pt;
+  transition: .25s;
+}
+.list-group > .list-item:hover > .list-item-control {
+  opacity: 1;
+  right: 10pt;
+  transition: .25s;
+}
+.list-item-control > label > svg {
+  height: 15pt;
+  width: 15pt;
+  vertical-align: middle;
+  transition: .25s;
+}
+.list-item-control > label + label{
+  margin-left: 10pt;
+}
+.list-item-control > button#delete-btn {
+  border: none;
+  width: 15pt;
+  height: 15pt;
+  vertical-align: middle;
+  margin-left: 10pt;
+  background-color: transparent;
+  position: relative;
+}
+.list-item-control > button#delete-btn > span {
+  position: absolute;
+  width: 15pt;
+  height: 2pt;
+  border-radius: 1pt;
+  background-color: #333;
+  top: 1.414pt;
+  transition: .25s;
+}
+.list-item-control > button#delete-btn:hover > span {
+  background-color: #ff6a80;
+  transition: .25s;
+}
+.list-item-control > button#delete-btn > span:first-child {
+  left: 0;
+  transform-origin: left top;
+  transform: rotate(45deg);
+}
+.list-item-control > button#delete-btn > span:last-child {
+  right: 6pt;
+  transform-origin: right top;
+  transform: rotate(-45deg);
+}
+.list-item > input[type="checkbox"] {
+  position: absolute;
+  /* top: -1000px; */
+  display: none;
+}
+.list-item > input[type="checkbox"]:checked.list-item-check ~ span {
+  color: rgba(100, 100, 100, 0.3);
+  transition: .25s;
+}
+.list-item > input[type="checkbox"]:checked.list-item-check ~ .list-item-control > label > svg#list-item-check-icon path,
+.list-item > input[type="checkbox"]:checked.list-item-edit ~ .list-item-control > label > svg#list-item-edit-icon path {
+  fill: #79D1C3;
+  transition: .25s;
+}
+.list-item > input[type="checkbox"]:checked.list-item-edit ~ span#edit-form,
+.list-item > span#content {
+  display: inline;
+  word-wrap: auto;
+}
+.list-item > input[type="checkbox"]:checked.list-item-edit ~ span#content,
+.list-item > input[type="checkbox"]:checked.list-item-edit ~ .list-item-control > label#check-item,
+.list-item > input[type="checkbox"]:checked.list-item-edit ~ .list-item-control > button#delete-btn,
+.list-item > input[type="checkbox"]:checked.list-item-edit ~ span#content,
+.list-item > span#edit-form {
+  display: none;
+}
+.list-item > span#edit-form > input {
+  box-sizing: border-box;
+  width: calc(100% - 95pt);
+  height: 24pt;
+  padding-left: 4pt;
+  font-size: 12pt;
+  vertical-align: middle;
+  color: #666;
+  background-color: #FFD8BE;
+  border: none;
+  margin: 0;
+}
+.list-item > span#edit-form > button {
+  width: 35pt;
+  height: 24pt;
+  line-height: 24pt;
+  color: white
+}
+.list-item > span#edit-form > button#cancel:hover {
+  background-color: #dd4960;
+  transition: .25s;
+}
+
+@keyframes fadeIn {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 40pt;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateCounterClockwise {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    width: 100%;
+  }
+  .inner-wrapper + .inner-wrapper {
+    margin-top: 10vh;
+  }
+}
+@media screen and (min-width: 768px) {
+  .wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .wrapper:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .inner-wrapper {
+    width: 48%;
+    box-sizing: border-box;
+    float: left;
+  }
+}
