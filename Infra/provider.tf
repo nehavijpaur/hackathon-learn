@@ -16,3 +16,8 @@ terraform {
     client_id            = "a882255f-41b9-43e6-85a2-e7495a28db04"
   }
 }
+
+variable "client_secret" {
+  type = string
+  description = "Azure Client Secret"
+}
