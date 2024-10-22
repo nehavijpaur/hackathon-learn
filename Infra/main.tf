@@ -1,3 +1,5 @@
+data "azurerm_client_config" "current" {}
+
 resource "azurerm_resource_group" "infrarg_1" {
   name     = "infrarg1"
   location = "North Europe"
