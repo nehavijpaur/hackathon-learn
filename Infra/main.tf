@@ -1,4 +1,22 @@
-data "azurerm_client_config" "current" {}
+#data "azurerm_client_config" "current" {}
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.0.0"
+    }
+  }
+  backend "azurerm" {
+  resource_group_name  = "backendtf-rg"
+  storage_account_name = "statefilestrg"
+  container_name       = "tfstate"
+  key                  = "terraform.tfstate"
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
 
 resource "azurerm_resource_group" "infrarg_1" {
   name     = "infrarg1"
