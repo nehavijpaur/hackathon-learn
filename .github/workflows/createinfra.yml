@@ -17,10 +17,10 @@ jobs:
       uses: hashicorp/setup-terraform@v1
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
-      with:
-         creds: ${{ secrets.AZURE_CREDENTIALS }}
-     # with: 
-      #  cli_config_credentials_token: ${{ secrets.CLIENT_SECRET }}
+      #with:
+      #   creds: ${{ secrets.AZURE_CREDENTIALS }}
+      with: 
+       cli_config_credentials_token: ${{ secrets.CLIENT_SECRET }}
    #- name: Set Azure Credentials
      # run: |
       #    echo "Setting up Azure credentials for Terraform..."
