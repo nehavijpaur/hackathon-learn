@@ -1,4 +1,6 @@
 #data "azurerm_client_config" "current" {}
+variable "client_secret" {}
+
 terraform {
   required_providers {
     azurerm = {
